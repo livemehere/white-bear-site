@@ -1,0 +1,165 @@
+//colors-bar
+$primary-color:#4BBCB6; //메인 테마색
+
+//nav-var
+$nav-bg-color:white; //네브바 배경색
+$a-color:#333; //네브바의 a태그 색
+$logo-color:$primary-color; //네브바에서의 로고색
+$nav-border-color:#EDEDED; //네브바의 하단 선 색
+
+//main-section-var
+$text-main-color:#000000B8; //메인 섹션에서 기본 텍스트 색
+$text-sub-color: #999999; //메인 섹션에서 조금 연한 텍스트 색
+
+//about-section-var
+
+
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.primary-text{
+  color: $primary-color;
+}
+
+.active{
+  color: $primary-color !important;
+}
+
+.nav{
+  background-color: $nav-bg-color;
+  padding: 1em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid $nav-border-color;
+
+  .logo{
+    color:$logo-color;
+  }
+
+  ul{
+    li{
+      list-style: none;
+      padding: 0.5em;
+      a{
+        text-decoration: none;
+        color: $a-color;
+        font-size: 1.2rem;
+        margin: 0 0.5em;
+      }
+    }
+  }
+}
+
+.main-section{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .text{
+    //margin-left: 3em;
+    margin-left: 15vw;
+    h1{
+      color: $text-main-color;
+      font-size: 3rem;
+    }
+    h3{
+      color: $text-sub-color;
+      font-size: 1.5rem;
+      margin-top: 1em;
+    }
+  }
+}
+
+.about-section{
+  display: flex;
+
+  .left-side{
+    display: flex;
+    justify-content: flex-end;
+    //align-items: center;
+    .img-wrap{
+      width: 90%;
+      max-width: 560px;
+      margin-right: 1rem;
+      height: 90%;
+      img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 10px;
+      }
+
+    }
+    flex:1;
+  }
+  .right-side{
+    flex:1;
+    .text{
+     max-width: 50%;
+      padding-left: 1.5em;
+      h1{
+        font-size: 3rem;
+      }
+      h2{
+        margin-top: .5em;
+      }
+      p{
+        margin-top: 1em;
+        font-size: 1.2rem;
+      }
+    }
+  }
+}
+
+// pad size
+@media screen and (max-width: 1785px){
+  .about-section{
+    .right-side{
+      .text{
+        max-width:90%;
+      }
+    }
+  }
+}
+
+// mobile
+@media screen and (max-width: 768px) {
+  .main-section{
+    height: 70vh;
+    .text{
+      margin-left: 1em;
+      h1{
+        font-size: 2rem;
+      }
+      h3{
+        font-size: 1.2rem;
+      }
+    }
+  }
+  .about-section{
+    flex-direction: column;
+    .left-side{
+      justify-content: center;
+      margin-right: 0;
+      .img-wrap{
+        margin-right: 0;
+      }
+    }
+
+    .right-side{
+      margin-top: 1rem;
+      display: flex;
+      justify-content: center;
+      .text{
+        max-width: 90%;
+        padding-left: 0;
+      }
+    }
+  }
+}
