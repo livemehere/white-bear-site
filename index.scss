@@ -1,5 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 //colors-bar
-$primary-color:#4BBCB6; //메인 테마색
+$primary-color:#82C7C3; //메인 테마색
+$divider-color:#ffab00;
+$text-main-color:#000000B8; //기본 텍스트 색
+$text-sub-color: #999999; //조금 연한 텍스트 색
+$contact-color:#fff;
 
 //nav-var
 $nav-bg-color:white; //네브바 배경색
@@ -8,25 +14,44 @@ $logo-color:$primary-color; //네브바에서의 로고색
 $nav-border-color:#EDEDED; //네브바의 하단 선 색
 
 //main-section-var
-$text-main-color:#000000B8; //메인 섹션에서 기본 텍스트 색
-$text-sub-color: #999999; //메인 섹션에서 조금 연한 텍스트 색
+
 
 //about-section-var
 
-
+html{
+  scroll-behavior: smooth;
+}
 
 *{
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: 'Poppins', sans-serif;
 }
-
+// 공용
 .primary-text{
   color: $primary-color;
 }
 
 .active{
   color: $primary-color !important;
+}
+
+@mixin colorDivider($color){
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 5rem 0;
+  span{
+    display: inline-block;
+    width: 100px;
+    height: 5px;
+    background-color: $color;
+  }
+}
+
+.primary-divider{
+  @include colorDivider($divider-color);
 }
 
 .nav{
@@ -55,7 +80,7 @@ $text-sub-color: #999999; //메인 섹션에서 조금 연한 텍스트 색
   }
 }
 
-.main-section{
+#main-section{
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -76,7 +101,7 @@ $text-sub-color: #999999; //메인 섹션에서 조금 연한 텍스트 색
   }
 }
 
-.about-section{
+#about-section{
   display: flex;
 
   .left-side{
@@ -116,10 +141,109 @@ $text-sub-color: #999999; //메인 섹션에서 조금 연한 텍스트 색
     }
   }
 }
+#teams-section{
+  &>h3{
+    margin: 2rem 0;
+    text-align: center;
+  }
+  .card-wrap{
+    &::-webkit-scrollbar{
+      display: none;
+    }
+
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    overflow-x: scroll;
+    padding: 1em;
+    .card-area{
+      width: 300px;
+      height: 500px;
+      flex:none;
+      .card{
+        background: rgb(63,199,192);
+        background: linear-gradient(180deg, rgba(63,199,192,1) 0%, rgba(170,231,228,1) 33%, rgba(255,255,255,1) 42%, rgba(255,255,255,1) 100%);
+        border-radius: 10px;
+        box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+        border-radius: 10px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+
+        .img-wrap{
+          width: 15em;
+          height: 15em;
+          padding: 1em;
+          img{
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+          }
+        }
+        .description{
+          h3{
+            text-align: center;
+            margin: .5em 0;
+            color:$text-main-color;
+          }
+          h4{
+            color:$text-main-color;
+            text-align: center;
+            margin-bottom: .5em;
+          }
+          p{
+            color: $text-sub-color;
+            margin: 0 auto;
+            text-align: center;
+            max-width: 85%;
+          }
+        }
+      }
+    }
+  }
+}
+
+#contact-section{
+  background-color: $primary-color;
+  color: $contact-color;
+  .wrap{
+    display: flex;
+    justify-content: space-around;
+    .info{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      ul{
+        li{
+          padding: .3em;
+          list-style: none;
+          display: flex;
+          justify-content: flex-start;
+          gap:1em;
+        }
+      }
+    }
+    .logo{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      max-width: 300px;
+      .text{
+        p{
+          color: darken($contact-color,4);
+        }
+      }
+    }
+  }
+}
+
+
 
 // pad size
 @media screen and (max-width: 1785px){
-  .about-section{
+  #about-section{
     .right-side{
       .text{
         max-width:90%;
@@ -130,7 +254,10 @@ $text-sub-color: #999999; //메인 섹션에서 조금 연한 텍스트 색
 
 // mobile
 @media screen and (max-width: 768px) {
-  .main-section{
+  h1,h2,h3,h4,h5,h6,p{
+    text-align: center;
+  }
+  #main-section{
     height: 70vh;
     .text{
       margin-left: 1em;
@@ -142,7 +269,7 @@ $text-sub-color: #999999; //메인 섹션에서 조금 연한 텍스트 색
       }
     }
   }
-  .about-section{
+  #about-section{
     flex-direction: column;
     .left-side{
       justify-content: center;
@@ -159,6 +286,50 @@ $text-sub-color: #999999; //메인 섹션에서 조금 연한 텍스트 색
       .text{
         max-width: 90%;
         padding-left: 0;
+      }
+    }
+  }
+  #teams-section{
+    .card-wrap {
+      justify-content: flex-start;
+      scroll-snap-type: x mandatory;
+      .card-area{
+        width: 100vw;
+        scroll-snap-align: start;
+        .card{
+          width: 70%;
+          max-width: 290px;
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+  #contact-section{
+    .wrap{
+      display: flex;
+      flex-direction: column;
+      .info{
+        display: flex;
+        justify-content: center;
+        ul{
+          li{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+        }
+      }
+      .logo{
+        margin:1em auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-width: 300px;
+        .text{
+          p{
+            color: darken($contact-color,4);
+          }
+        }
       }
     }
   }
