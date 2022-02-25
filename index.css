@@ -18,6 +18,19 @@ html {
   color: #82C7C3 !important;
 }
 
+.open {
+  display: flex !important;
+  animation: dropDown 0.5s forwards;
+}
+
+@keyframes dropDown {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0%);
+  }
+}
 .primary-divider {
   display: flex;
   justify-content: center;
@@ -43,6 +56,12 @@ html {
   color: #82C7C3;
 }
 .nav .close-btn {
+  display: none;
+}
+.nav .close-btn #open-btn {
+  display: block;
+}
+.nav .close-btn #close-btn {
   display: none;
 }
 .nav ul {
@@ -237,6 +256,7 @@ html {
     color: #82C7C3;
   }
   .nav ul {
+    display: none;
     flex-direction: column;
   }
   .nav ul li {

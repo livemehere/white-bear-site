@@ -37,6 +37,20 @@ html{
   color: $primary-color !important;
 }
 
+.open{
+  display: flex !important;
+  animation: dropDown 0.5s forwards;
+}
+
+@keyframes dropDown {
+  from{
+    transform:translateY(-100%);
+  }
+  to{
+    transform:translateY(0%);
+  }
+}
+
 @mixin colorDivider($color){
   display: flex;
   justify-content: center;
@@ -67,6 +81,12 @@ html{
   }
   .close-btn{
     display: none;
+    #open-btn{
+      display: block;
+    }
+    #close-btn{
+      display: none;
+    }
   }
 
   ul{
@@ -288,8 +308,10 @@ html{
       color:$logo-color;
     }
 
+
+
     ul{
-      //display: none;
+      display: none;
       flex-direction: column;
       li{
         text-align: center;
