@@ -65,8 +65,12 @@ html{
   .logo{
     color:$logo-color;
   }
+  .close-btn{
+    display: none;
+  }
 
   ul{
+    display: flex;
     li{
       list-style: none;
       padding: 0.5em;
@@ -257,6 +261,50 @@ html{
   h1,h2,h3,h4,h5,h6,p{
     text-align: center;
   }
+
+
+  .nav{
+    padding: 1em;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    border-bottom: 1px solid $nav-border-color;
+    position: relative;
+
+    .close-btn{
+      display: block;
+      position: absolute;
+      right: 20px;
+      top: 20px;
+
+      i{
+        font-size: 1.5rem;
+        color: $primary-color;
+      }
+    }
+
+    .logo{
+      color:$logo-color;
+    }
+
+    ul{
+      //display: none;
+      flex-direction: column;
+      li{
+        text-align: center;
+        list-style: none;
+        padding: 0.5em;
+        a{
+          text-decoration: none;
+          color: $a-color;
+          font-size: 1.2rem;
+          margin: 0 0.5em;
+        }
+      }
+    }
+  }
+
   #main-section{
     height: 70vh;
     .text{

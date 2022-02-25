@@ -42,6 +42,12 @@ html {
 .nav .logo {
   color: #82C7C3;
 }
+.nav .close-btn {
+  display: none;
+}
+.nav ul {
+  display: flex;
+}
 .nav ul li {
   list-style: none;
   padding: 0.5em;
@@ -206,6 +212,43 @@ html {
 @media screen and (max-width: 768px) {
   h1, h2, h3, h4, h5, h6, p {
     text-align: center;
+  }
+
+  .nav {
+    padding: 1em;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    border-bottom: 1px solid #EDEDED;
+    position: relative;
+  }
+  .nav .close-btn {
+    display: block;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+  }
+  .nav .close-btn i {
+    font-size: 1.5rem;
+    color: #82C7C3;
+  }
+  .nav .logo {
+    color: #82C7C3;
+  }
+  .nav ul {
+    flex-direction: column;
+  }
+  .nav ul li {
+    text-align: center;
+    list-style: none;
+    padding: 0.5em;
+  }
+  .nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1.2rem;
+    margin: 0 0.5em;
   }
 
   #main-section {
